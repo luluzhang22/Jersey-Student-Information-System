@@ -26,6 +26,7 @@ Requirement:
 . Step 4 - Deploy using ElasticBeanstalk
 . Your Resources are all going to stay in Memory. 
 
+
 ElasticBeanstalk URL: jerseystudentinform-luluzhang-env.us-west-2.elasticbeanstalk.com
 
 URIs:
