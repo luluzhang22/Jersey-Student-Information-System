@@ -66,6 +66,11 @@ public class CourseService {
     }
 
     public Course removeCourse(long id){
+        if(courses.containsKey(id)){
+            for(long studentKey : courses.get(id).getStudents().keySet()){
+                students.get(studentKey).getCourses().remove(id);
+            }
+        }
         return courses.remove(id);
     }
 

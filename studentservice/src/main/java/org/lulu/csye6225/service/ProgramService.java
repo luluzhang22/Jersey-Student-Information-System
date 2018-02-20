@@ -11,6 +11,8 @@ import java.util.Map;
 
 public class ProgramService {
     private Map<Long, Program> programs = DatabaseClass.getPrograms();
+    private Map<Long, Course> courses = DatabaseClass.getCourses();
+    private Map<Long, Student> students = DatabaseClass.getStudents();
     private static long generateId = DatabaseClass.getPrograms().size();
 
     public List<Program> getAllProgram(){
@@ -46,9 +48,17 @@ public class ProgramService {
     public Program removeProgram(long id){
         if(!programs.containsKey(id))
             return null;
-        CourseService courseService = new CourseService();
-        for(long key : programs.get(id).getCourses().keySet()){
-            courseService.removeCourse(key);
+        for(long courseKey : programs.get(id).getCourses().keySet()){
+            for(long studentKey : courses.get(courseKey).getStudents().keySet()){
+                students.get(studentKey).getCourses().remove(courseKey);
+            }
+            courses.remove(courseKey);
+        }
+        for(long studentKey : programs.get(id).getStudents().keySet()){
+            for(long courseKey : students.get(studentKey).getCourses().keySet()){
+                courses.get(courseKey).getStudents().remove(studentKey);
+            }
+            students.remove(studentKey);
         }
         return programs.remove(id);
     }

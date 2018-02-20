@@ -1,13 +1,9 @@
 package org.lulu.csye6225;
 
-import org.lulu.csye6225.model.Program;
-import org.lulu.csye6225.service.ProgramService;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import java.util.List;
 
 /**
  * Root resource (exposed at "myresource" path)

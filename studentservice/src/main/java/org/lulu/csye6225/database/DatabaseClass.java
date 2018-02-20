@@ -45,7 +45,6 @@ public class DatabaseClass {
         c1.getStudents().put(s1.getStudentId(), s1);
         c1.getStudents().put(s2.getStudentId(), s2);
         c2.getStudents().put(s1.getStudentId(), s1);
-        c2.getStudents().put(s2.getStudentId(), s2);
 
         courses.put(1L, c1);
         courses.put(2L, c2);

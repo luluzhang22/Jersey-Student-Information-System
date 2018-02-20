@@ -19,30 +19,6 @@ public class StudentResource {
         return studentService.getAllStudent();
     }
 
-//    @GET
-//    public List<Student> getStudentsByCourse(@PathParam("courseId") long courseId){
-//        return studentService.getAllStudent(courseId);
-//    }
-
-
-//    @POST
-//    public Student addStudent(Student student) {
-//        return studentService.addStudent(student);
-//    }
-
-//    @PUT
-//    @Path("{studentId}")
-//    public Student updateStudent(@PathParam("studentId") long id, Student student){
-//        student.setStudentId(id);
-//        return studentService.updateStudent(student);
-//    }
-
-//    @DELETE
-//    @Path("{studentId}")
-//    public void deleteStudent(@PathParam("studentId") long id){
-//        studentService.removeStudent(id);
-//    }
-
     @GET
     @Path("{studentId}")
     public Student getStudent(@PathParam("studentId") long id){
@@ -56,8 +32,8 @@ public class StudentResource {
     }
 
     @POST
-    @Path("{studentId}/courses")
-    public List<Course> addCourse(@PathParam("studentId") long id, long courseId){
+    @Path("{studentId}/courses/{courseId}")
+    public List<Course> addCourse(@PathParam("studentId") long id, @PathParam("courseId") long courseId){
         return studentService.addCourse(id,courseId);
     }
 
@@ -69,7 +45,7 @@ public class StudentResource {
 
     @DELETE
     @Path("{studentId}/courses/{courseId}")
-    public Student removeCourse(@PathParam("studentId") long id, @PathParam("courseId") long courseId){
-        return studentService.removeCourse(id, courseId);
+    public void removeCourse(@PathParam("studentId") long id, @PathParam("courseId") long courseId){
+        studentService.removeCourse(id, courseId);
     }
 }

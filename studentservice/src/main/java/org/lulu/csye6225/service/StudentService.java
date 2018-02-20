@@ -29,27 +29,6 @@ public class StudentService {
         return programs.get(programId).getStudents().get(id);
     }
 
-    public List<Course> getCourses(long id){
-        if(students.get(id) == null)
-            return null;
-        return new ArrayList<>(students.get(id).getCourses().values());
-    }
-
-    public Course getCourse(long id, long courseId){
-        if(students.get(id) == null)
-            return null;
-        return students.get(id).getCourses().get(courseId);
-    }
-
-    public Student removeCourse(long id, long courseId){
-        if(students.get(id) == null)
-            return null;
-        Course c = students.get(id).getCourses().get(courseId);
-        c.getStudents().remove(id);
-        students.get(id).getCourses().remove(courseId);
-        return students.get(id);
-    }
-
     public Student getStudent(long id){
         return students.get(id);
     }
@@ -62,7 +41,6 @@ public class StudentService {
 
     public Student addStudent(long programId, Student student){
         student.setProgramName(programs.get(programId).getName());
-//        student.setCourses(new ArrayList<String>());
         addStudent(student);
         programs.get(programId).getStudents().put(student.getStudentId(), student);
         return student;
@@ -89,14 +67,39 @@ public class StudentService {
     public Student removeStudent(long id){
         if(!students.containsKey(id))
             return null;
-//        programs.get(students.get(id).ge).getStudents().remove(id);
+        for(long courseId : students.get(id).getCourses().keySet()){
+            courses.get(courseId).getStudents().remove(id);
+        }
         return students.remove(id);
     }
 
     public Student removeStudent(long programId, long id){
-        if(students.remove(id) == null)
+        if(removeStudent(id) == null)
             return null;
         return programs.get(programId).getStudents().remove(id);
+    }
+
+    public List<Course> getCourses(long id){
+        if(students.get(id) == null)
+            return null;
+        return new ArrayList<>(students.get(id).getCourses().values());
+    }
+
+    public Course getCourse(long id, long courseId){
+        if(students.get(id) == null)
+            return null;
+        return students.get(id).getCourses().get(courseId);
+    }
+
+    public Student removeCourse(long id, long courseId){
+        if(students.get(id) == null)
+            return null;
+        Course c = students.get(id).getCourses().get(courseId);
+        if(c != null) {
+            c.getStudents().remove(id);
+            students.get(id).getCourses().remove(courseId);
+        }
+        return students.get(id);
     }
 
     public List<Course> addCourse(long studentId, long courseId){
