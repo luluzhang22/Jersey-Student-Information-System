@@ -3,8 +3,10 @@ NEU18Spring-CSYE6225
 
 
 **ElasticBeanstalk URL**
- 
+
 jerseystudentinform-luluzhang-env.us-west-2.elasticbeanstalk.com
+
+
 
 
 **Requirement:**
@@ -39,6 +41,7 @@ jerseystudentinform-luluzhang-env.us-west-2.elasticbeanstalk.com
 /programs/{programId}/students/{studentId} GET, PUT, DELETE
 
 
+
 /students GET
 
 /students/{studentId} GET
@@ -46,6 +49,7 @@ jerseystudentinform-luluzhang-env.us-west-2.elasticbeanstalk.com
 /students/{studentId}/courses GET
 
 /students/{studentId}/courses/{courseId} GET, DELETE, POST
+
 
 
 /courses GET
