@@ -2,8 +2,8 @@
 NEU18Spring-CSYE6225
 
 Requirement:
-. StudentInformationSystem 
-     - The system manages Students and Programs.
+StudentInformationSystem 
+The system manages Students and Programs.
      - Every Program has Courses
      - Every Course has Lectures, and each lecture will have notes, and associated material
      - Every Course will have a board
