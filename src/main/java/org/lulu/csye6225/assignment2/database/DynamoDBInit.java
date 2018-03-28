@@ -1,6 +1,6 @@
 package org.lulu.csye6225.assignment2.database;
 
-import com.amazonaws.auth.profile.ProfileCredentialsProvider;
+import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
@@ -17,8 +17,7 @@ import java.util.ArrayList;
 
 public class DynamoDBInit {
     private static AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-            .withCredentials(new ProfileCredentialsProvider()).withRegion(Regions.US_WEST_2).build();
-    //	private static DynamoDB dynamoDB = new DynamoDB(client);
+            .withCredentials(DefaultAWSCredentialsProviderChain.getInstance()).withRegion(Regions.US_WEST_2).build();
     private static DynamoDBMapper mapper = new DynamoDBMapper(client);
 
     static {

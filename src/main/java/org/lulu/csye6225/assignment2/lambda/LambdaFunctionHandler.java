@@ -14,9 +14,6 @@ import com.amazonaws.services.sns.AmazonSNSClientBuilder;
 import com.amazonaws.services.sns.model.*;
 
 public class LambdaFunctionHandler implements RequestHandler<DynamodbEvent, String> {
-//    private static AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-//            .withCredentials(DefaultAWSCredentialsProviderChain.getInstance()).withRegion(Regions.US_WEST_2).build();
-//    private static DynamoDB dynamoDB = new DynamoDB(client);
 
     private static AmazonSNS SNS_CLIENT = AmazonSNSClientBuilder.standard().withRegion(Regions.US_WEST_2).build();
     private static Map<String, String> courseTopics = new HashMap<>();

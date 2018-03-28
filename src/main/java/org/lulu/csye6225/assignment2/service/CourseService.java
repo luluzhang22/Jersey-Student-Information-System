@@ -146,19 +146,23 @@ public class CourseService {
         return null;
     }
 
+    //could course add students??
     public Set<String> addStudent(String courseId, String studentId){
         Course c = mapper.load(Course.class, courseId);
         Student s = mapper.load(Student.class, studentId);
-        if(c.getStudents() == null){
-            c.setStudents(new HashSet<String>());
+        if(c != null && s != null && (c.getStudents() == null || !c.getStudents().contains(studentId))) {
+            if (c.getStudents() == null) {
+                c.setStudents(new HashSet<String>());
+            }
+            if (s.getCourses() == null) {
+                s.setCourses(new HashSet<String>());
+            }
+            c.getStudents().add(studentId);
+            s.getCourses().add(courseId);
+            mapper.save(s);
+            mapper.save(c);
+            new LambdaFunctionHandler().subscribe(courseId, s.getEmail());
         }
-        if(s.getCourses() == null){
-            s.setCourses(new HashSet<String>());
-        }
-        c.getStudents().add(studentId);
-        s.getCourses().add(courseId);
-        mapper.save(s);
-        mapper.save(c);
         return c.getStudents();
     }
 

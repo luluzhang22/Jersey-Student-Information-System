@@ -1,12 +1,12 @@
 # Jersey-Student-Information-System
 
-##NEU18Spring-CSYE6225
+## NEU18Spring-CSYE6225
 
 **ElasticBeanstalk URL**
 
 https://jerseystudentinform-luluzhang-env.us-west-2.elasticbeanstalk.com
 
-##Assignmet 1
+## Assignmet 1
 **Requirement:**
 
 . StudentInformationSystem 
@@ -47,7 +47,7 @@ https://jerseystudentinform-luluzhang-env.us-west-2.elasticbeanstalk.com
     6. /courses/{courseId}/lectures/{lectureId}     GET, PUT, DELETE
 
 
-##Assignmet 2
+## Assignment 2
 
 **Requirement:**
 1. You will create DynamoDb tables for the Entities defined as part of Assignment 1. 
@@ -67,10 +67,24 @@ Different from URIs in the assignment1: add 'ddb/' before all URIs
 
 1. programs
     1. /ddb/programs    GET, POST.
+        1. POST body example for programs: {
+                              	"name": "Computer Science"
+                              }
     2. /ddb/programs/{programId}    PUT, DELETE, GET
     3. /ddb/programs/{programId}/courses    GET, POST
+        1. POST body example for courses: {
+                                          	"courseId": "CS1234",
+                                          	"name": "Algorithm",
+                                          	"roster" : "lulu",
+                                          	"board": "board for CS1234"
+                                          }
     4. /ddb/programs/{programId}/courses/{courseId}     GET, PUT, DELETE
     5. /ddb/programs/{programId}/students   GET, POST
+        1. POST body example for students: {
+                                           	"studentId": "001810001",
+                                           	"name": "Lulu Zhang",
+                                           	"email" : "zhang_lulu@outlook.com"
+                                           }
     6. /ddb/programs/{programId}/students/{studentId}   GET, PUT, DELETE
 2. student
     1. /ddb/students    GET
@@ -82,14 +96,19 @@ Different from URIs in the assignment1: add 'ddb/' before all URIs
     2. /ddb/courses/{courseId}      GET
     3. /ddb/courses/{courseId}/students     GET
     4. /ddb/courses/{courseId}/students/{studentId}     GET, DELETE, POST
-    5. /courses/{courseId}/lectures     GET, POST
-    6. /courses/{courseId}/lectures/{lectureId}     GET, PUT, DELETE
 4. professor
     1. /ddb/professors      GET, POST
+        a. POST body example for professor: {
+                                            	"name": "Ross"
+                                            }
     2. /ddb/professors/{professorId}    PUT, GET, DELETE
     3. /ddb/professors/{professorId}/courses       GET
     4. /ddb/professors/{professorId}/courses/{courseId}     POST, GET, DELETE
     5. /ddb/professors/{professorId}/courses/{courseId}/announcements       GET, POST
+        a. POST body example for announcement: {
+                                               	"title": "First class time",
+                                               	"content": "6:30 PM, Friday"
+                                               }
     6. /ddb/professors/{professorId}/courses/{courseId}/announcements/{announcementId}      GET
 5. announcement
     1. /ddb/announcements       GET
