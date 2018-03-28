@@ -1,12 +1,12 @@
 # Jersey-Student-Information-System
 
-###NEU18Spring-CSYE6225
+##NEU18Spring-CSYE6225
 
 **ElasticBeanstalk URL**
 
 https://jerseystudentinform-luluzhang-env.us-west-2.elasticbeanstalk.com
 
-###Assignmet 1
+##Assignmet 1
 **Requirement:**
 
 . StudentInformationSystem 
@@ -47,7 +47,7 @@ https://jerseystudentinform-luluzhang-env.us-west-2.elasticbeanstalk.com
     6. /courses/{courseId}/lectures/{lectureId}     GET, PUT, DELETE
 
 
-###Assignmet 2
+##Assignmet 2
 
 **Requirement:**
 1. You will create DynamoDb tables for the Entities defined as part of Assignment 1. 
