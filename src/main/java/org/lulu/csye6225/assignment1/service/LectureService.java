@@ -1,8 +1,8 @@
-package org.lulu.csye6225.service;
+package org.lulu.csye6225.assignment1.service;
 
-import org.lulu.csye6225.database.DatabaseClass;
-import org.lulu.csye6225.model.Course;
-import org.lulu.csye6225.model.Lecture;
+import org.lulu.csye6225.assignment1.database.DatabaseClass;
+import org.lulu.csye6225.assignment1.model.Course;
+import org.lulu.csye6225.assignment1.model.Lecture;
 
 import java.util.ArrayList;
 import java.util.List;

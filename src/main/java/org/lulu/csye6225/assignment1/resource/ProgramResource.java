@@ -1,7 +1,7 @@
-package org.lulu.csye6225.resource;
+package org.lulu.csye6225.assignment1.resource;
 
-import org.lulu.csye6225.model.Program;
-import org.lulu.csye6225.service.ProgramService;
+import org.lulu.csye6225.assignment1.model.Program;
+import org.lulu.csye6225.assignment1.service.ProgramService;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;

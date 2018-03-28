@@ -1,8 +1,7 @@
-package org.lulu.csye6225.model;
+package org.lulu.csye6225.assignment1.model;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import java.util.ArrayList;
 import java.util.HashMap;

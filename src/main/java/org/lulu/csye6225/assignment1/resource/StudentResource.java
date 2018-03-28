@@ -1,8 +1,8 @@
-package org.lulu.csye6225.resource;
+package org.lulu.csye6225.assignment1.resource;
 
-import org.lulu.csye6225.model.Course;
-import org.lulu.csye6225.model.Student;
-import org.lulu.csye6225.service.StudentService;
+import org.lulu.csye6225.assignment1.model.Course;
+import org.lulu.csye6225.assignment1.model.Student;
+import org.lulu.csye6225.assignment1.service.StudentService;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;

@@ -1,9 +1,9 @@
-package org.lulu.csye6225.service;
+package org.lulu.csye6225.assignment1.service;
 
-import org.lulu.csye6225.database.DatabaseClass;
-import org.lulu.csye6225.model.Course;
-import org.lulu.csye6225.model.Program;
-import org.lulu.csye6225.model.Student;
+import org.lulu.csye6225.assignment1.database.DatabaseClass;
+import org.lulu.csye6225.assignment1.model.Course;
+import org.lulu.csye6225.assignment1.model.Program;
+import org.lulu.csye6225.assignment1.model.Student;
 
 import java.util.*;
 
