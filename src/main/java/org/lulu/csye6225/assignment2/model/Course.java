@@ -19,6 +19,8 @@ public class Course {
 
     private String programId;
     private String professorId;
+    
+    private String topicArn;
 
     public Course(){
 
@@ -103,4 +105,13 @@ public class Course {
     public void setProfessorId(String professorId) {
         this.professorId = professorId;
     }
+
+    @DynamoDBAttribute(attributeName = "TopicArn")
+	public String getTopicArn() {
+		return topicArn;
+	}
+
+	public void setTopicArn(String topicArn) {
+		this.topicArn = topicArn;
+	}
 }

@@ -57,17 +57,20 @@ public class ProfessorService {
         Professor p = mapper.load(Professor.class, id);
         Course c = mapper.load(Course.class, courseId);
         if(p != null && c != null){
-            if(p.getCourses() == null){
-                p.setCourses(new HashSet<String>());
-            }
             //if course already has a professor, cloud we just exchange the professor?????
             if(c.getProfessorId() != null){
                 Professor professor = mapper.load(Professor.class, c.getProfessorId());
                 professor.getCourses().remove(courseId);
                 mapper.save(professor);
             }
-            c.setProgramId(id);
+            c.setProfessorId(id);
+            
+            
+            if(p.getCourses() == null){
+                p.setCourses(new HashSet<String>());
+            }
             p.getCourses().add(courseId);
+            
             mapper.save(c);
             mapper.save(p);
         }

@@ -3,13 +3,13 @@ package org.lulu.csye6225.assignment2.service;
 import java.util.*;
 
 import org.lulu.csye6225.assignment2.database.DynamoDBInit;
+import org.lulu.csye6225.assignment2.lambda.AnnouncementLambdaFunctionHandler;
 import org.lulu.csye6225.assignment2.model.Course;
 import org.lulu.csye6225.assignment2.model.Program;
 import org.lulu.csye6225.assignment2.model.Student;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
-import org.lulu.csye6225.assignment2.lambda.LambdaFunctionHandler;
 
 public class StudentService {
     private static DynamoDBMapper mapper = DynamoDBInit.getMapper();
@@ -161,7 +161,7 @@ public class StudentService {
             c.getStudents().add(studentId);
             mapper.save(s);
             mapper.save(c);
-            new LambdaFunctionHandler().subscribe(courseId, s.getEmail());
+            new AnnouncementLambdaFunctionHandler().subscribe(courseId, s.getEmail());
         }
         return s.getCourses();
     }

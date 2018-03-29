@@ -7,7 +7,7 @@ import org.lulu.csye6225.assignment2.model.Course;
 import org.lulu.csye6225.assignment2.model.Professor;
 import org.lulu.csye6225.assignment2.model.Program;
 import org.lulu.csye6225.assignment2.model.Student;
-import org.lulu.csye6225.assignment2.lambda.LambdaFunctionHandler;
+import org.lulu.csye6225.assignment2.lambda.AnnouncementLambdaFunctionHandler;
 
 import java.util.*;
 
@@ -51,9 +51,6 @@ public class CourseService {
             System.out.println("courseId - " + course.getCourseId() + " is already exist!");
             return null;
         }
-        //add course
-        course.setProgramId(programId);
-        addCourse(course);
 
         //update program
         Program p = mapper.load(Program.class, programId);
@@ -63,7 +60,11 @@ public class CourseService {
         mapper.save(p);
 
         //create a new topic for this course
-        new LambdaFunctionHandler().addTopic(course.getCourseId());
+        String topicArn = new AnnouncementLambdaFunctionHandler().addTopic(course.getCourseId());
+        //add course
+        course.setTopicArn(topicArn);
+        course.setProgramId(programId);
+        addCourse(course);
         return course;
     }
 
@@ -113,6 +114,8 @@ public class CourseService {
         removeCourseFromStudents(course);
         removeCourseFromProfessor(course);
 
+        //delete topic
+        new AnnouncementLambdaFunctionHandler().removeTopic(course.getTopicArn());
         mapper.delete(course);
     }
 
@@ -161,7 +164,7 @@ public class CourseService {
             s.getCourses().add(courseId);
             mapper.save(s);
             mapper.save(c);
-            new LambdaFunctionHandler().subscribe(courseId, s.getEmail());
+            new AnnouncementLambdaFunctionHandler().subscribe(courseId, s.getEmail());
         }
         return c.getStudents();
     }
