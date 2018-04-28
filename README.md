@@ -4,7 +4,7 @@
 
 **ElasticBeanstalk URL**
 
-https://jerseystudentinform-luluzhang-env.us-west-2.elasticbeanstalk.com
+http://jerseystudentinform-luluzhang-env.us-west-2.elasticbeanstalk.com
 
 ## Assignmet 1
 **Requirement:**
