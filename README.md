@@ -113,3 +113,21 @@ Different from URIs in the assignment1: add 'ddb/' before all URIs
 5. announcement
     1. /ddb/announcements       GET
     2. /ddb/announcements/{announcementId}       GET
+    
+## Assignmet 3
+**Requirement:**
+This time you will be building a workflow to Register a student. As discussed in the class the workflow is to charge students who register for 1 course.
+
+You have to start the workflow from the flow where your student registers for a course. Depending upon how you have structured your code this could mean your registerCourse() function or newStudent() function. 
+
+There are only two branches of the workflow
+
+1. Student registers for one course
+
+2. Student registers for no course.
+
+The attached flowchart shows the intended workflow.
+
+To start the workflow you will have to expose a amazon api gateway function and call api gateway from the place in your course service, where a student registers for a course.
+
+https://docs.aws.amazon.com/step-functions/latest/dg/tutorial-api-gateway.html

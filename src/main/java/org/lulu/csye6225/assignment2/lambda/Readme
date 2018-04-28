@@ -1,0 +1,8 @@
+github: https://github.com/luluzhang22/Jersey-Student-Information-System
+
+code for assginment4: https://github.com/luluzhang22/Jersey-Student-Information-System/tree/master/src/main/java/org/lulu/csye6225/assignment2/lambda
+
+Invoke URL for call API Gateway: https://k1tmxjgvy3.execute-api.us-west-2.amazonaws.com/alpha/execution
+
+Command for call API Gateway: 
+curl -X POST -d '{"input": "{\"studentId\":\"001810001\"}","name": "MyExecution11","stateMachineArn": "arn:aws:states:us-west-2:602070076072:stateMachine:StudentRegister"}' https://k1tmxjgvy3.execute-api.us-west-2.amazonaws.com/alpha/execution
